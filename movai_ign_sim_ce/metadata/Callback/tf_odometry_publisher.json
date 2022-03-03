@@ -1,0 +1,26 @@
+{
+    "Callback": {
+        "tf_odometry_publisher": {
+            "Info": "",
+            "Label": "tf_odometry_publisher",
+            "LastUpdate": {
+                "date": "20/10/2021 at 12:08:08",
+                "user": "movai"
+            },
+            "Message": "nav_msgs/Odometry",
+            "Py3Lib": {
+                "Time": {
+                    "Class": "Time",
+                    "Module": "rospy"
+                },
+                "tf": {
+                    "Class": false,
+                    "Module": "tf"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

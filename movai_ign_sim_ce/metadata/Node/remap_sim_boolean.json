@@ -1,0 +1,49 @@
+{
+    "Node": {
+        "remap_sim_boolean": {
+            "Info": "remap boolean std_msgs",
+            "Label": "remap_sim_boolean",
+            "LastUpdate": {
+                "date": "29/10/2021 at 16:34:26",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "bool_msg": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

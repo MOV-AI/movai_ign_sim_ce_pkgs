@@ -1,0 +1,96 @@
+{
+    "Flow": {
+        "ignition_float_sub": {
+            "Description": "Simple float subscriber to Ignition float publisher.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_float": {
+                    "remap": [
+                        "float_msg/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_float_sub",
+            "LastUpdate": {
+                "date": "17/12/2021 at 15:26:21",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "3671150b-648f-4e6d-91f0-19d1f659d9df": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                },
+                "4af29e7f-bb9e-4fec-87a8-7f0a8de04d2f": {
+                    "From": "dep/depends/out",
+                    "To": "remap/depend/in"
+                }
+            },
+            "NodeInst": {
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0164
+                        },
+                        "y": {
+                            "Value": 0.012066666666666667
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/$(flow topic_name)@std_msgs/Float64[ignition.msgs.Double"
+                        },
+                        "remap": {
+                            "Value": "/$(flow topic_name):=/$(flow topic_name)/float_msg"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.030878125000000003
+                        },
+                        "y": {
+                            "Value": 0.018733333333333334
+                        }
+                    }
+                },
+                "remap": {
+                    "NodeLabel": "remap",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow topic_name)"
+                        }
+                    },
+                    "Template": "remap_sim_float",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.031133333333333336
+                        },
+                        "y": {
+                            "Value": 0.0118
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "topic_name": {
+                    "Description": "",
+                    "Value": "dummy_topic"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

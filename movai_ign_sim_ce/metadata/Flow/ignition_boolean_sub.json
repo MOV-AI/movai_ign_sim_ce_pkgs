@@ -1,0 +1,96 @@
+{
+    "Flow": {
+        "ignition_boolean_sub": {
+            "Description": "Simple boolean subscriber to Ignition boolean publisher.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_boolean": {
+                    "bool": [
+                        "bool_msg/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_boolean_sub",
+            "LastUpdate": {
+                "date": "17/12/2021 at 15:22:34",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "a7876f50-2abf-4d8d-bb10-ca282f5ee7d8": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                },
+                "e0aaa2bf-dc35-48ef-a6ea-83e957ac2121": {
+                    "From": "dep/depends/out",
+                    "To": "bool/depend/in"
+                }
+            },
+            "NodeInst": {
+                "bool": {
+                    "NodeLabel": "bool",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow topic_name)"
+                        }
+                    },
+                    "Template": "remap_sim_boolean",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03133333333333334
+                        },
+                        "y": {
+                            "Value": 0.009333333333333334
+                        }
+                    }
+                },
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0164
+                        },
+                        "y": {
+                            "Value": 0.012066666666666667
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/$(flow topic_name)@std_msgs/Bool[ignition.msgs.Boolean"
+                        },
+                        "remap": {
+                            "Value": "/$(flow topic_name):=/$(flow topic_name)/bool_msg"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.031678125
+                        },
+                        "y": {
+                            "Value": 0.0182
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "topic_name": {
+                    "Description": "",
+                    "Value": "dummy_topic"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

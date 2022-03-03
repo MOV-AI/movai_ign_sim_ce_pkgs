@@ -1,0 +1,34 @@
+{
+    "Node": {
+        "tf_odometry": {
+            "Info": "Publish TF of Odometry",
+            "Label": "tf_odometry",
+            "LastUpdate": {
+                "date": "15/09/2021 at 17:04:57",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "odometry": {
+                    "In": {
+                        "in": {
+                            "Callback": "tf_odometry_publisher",
+                            "Message": "nav_msgs/Odometry"
+                        }
+                    },
+                    "Message": "Odometry",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Subscriber"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,8 @@
+use_sim_time: true
+
+# The sim_robot_name must be the same name of the robot instance inside the Ignition Simulator World Scene.
+# Possible values are "husky", "tugbot" and "rpm"
+sim_robot_name: "tugbot"
+
+# The world_scene_name must be the same name of the Ignition Simulator World Scene.
+world_scene_name: "world_demo"

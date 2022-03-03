@@ -1,0 +1,68 @@
+{
+    "Node": {
+        "remap_sim_diffdrive": {
+            "Info": "RPM simulation In/Out Driver remap",
+            "Label": "remap_sim_diffdrive",
+            "LastUpdate": {
+                "date": "26/10/2021 at 08:18:43",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "_launch": {
+                    "Description": "",
+                    "Value": "False"
+                },
+                "_namespace": {
+                    "Description": "namespace",
+                    "Value": ""
+                },
+                "_remappable": {
+                    "Description": "",
+                    "Value": "False"
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "cmd_vel": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Message": "Twist",
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "odom": {
+                    "Message": "Odometry",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/Odometry"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

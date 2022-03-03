@@ -1,0 +1,137 @@
+{
+    "Flow": {
+        "ignition_lidar_2D": {
+            "Description": "This Subflow is to use with the Ignition Sensor \"gpu_lidar\" in the robot SDF file only with \"horizontal\" samples.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dependency": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_laser2d": {
+                    "output": [
+                        "scan/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_lidar_2D",
+            "LastUpdate": {
+                "date": "06/01/2022 at 18:29:49",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "a4820309-87ed-4685-b99c-db9da4701115": {
+                    "From": "dependency/depends/out",
+                    "To": "output/depend/in"
+                },
+                "a849318b-2832-4f0e-ab1f-61f01f01144c": {
+                    "From": "tf_scan/tf_static/out",
+                    "To": "ign_bridge/empty/in"
+                },
+                "f4ae06c9-01da-4ff6-ba92-b38ae22b4b3b": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dependency": {
+                    "NodeLabel": "dependency",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017866666666666666
+                        },
+                        "y": {
+                            "Value": 0.015266666666666668
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/scan@sensor_msgs/LaserScan[ignition.msgs.LaserScan"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/scan:=/$(flow remap_topic)/scan"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.02826666666666667
+                        },
+                        "y": {
+                            "Value": 0.018933333333333333
+                        }
+                    }
+                },
+                "output": {
+                    "NodeLabel": "output",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        },
+                        "_ns": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_laser2d",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0336
+                        },
+                        "y": {
+                            "Value": 0.011533333333333335
+                        }
+                    }
+                },
+                "tf_scan": {
+                    "CmdLine": {
+                        "cmdline": {
+                            "Value": "$(flow sensor_pose) $(flow frame_name) $(flow robot_name)/$(flow frame_name)/$(flow sensor_name)"
+                        }
+                    },
+                    "NodeLabel": "tf_scan",
+                    "Template": "static_transform_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.019266666666666668
+                        },
+                        "y": {
+                            "Value": 0.022266666666666667
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "frame_name": {
+                    "Description": "link that is attached the sensor in SDF model file",
+                    "Value": "lidar_link"
+                },
+                "remap_topic": {
+                    "Description": "topic to be used in Mov.Ai",
+                    "Value": "laser"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                },
+                "sensor_name": {
+                    "Description": "Name of the sensor in SDF file.",
+                    "Value": "lidar"
+                },
+                "sensor_pose": {
+                    "Description": "Sensor position relative to the frame_name:\nx y z R P Y",
+                    "Type": "any",
+                    "Value": "0 0 0 0 0 0"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,94 @@
+{
+    "Node": {
+        "tugbot_ignition_battery_adapter": {
+            "Info": "Node to subscribe to the battery/state topic and publish the battery information specific to the tugbot",
+            "Label": "tugbot_ignition_battery_adapter",
+            "LastUpdate": {
+                "date": "17/11/2021 at 20:50:12",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "battery_state": {
+                    "In": {
+                        "in": {
+                            "Callback": "tb_ign_battery_adapter_battery_state",
+                            "Message": "sensor_msgs/BatteryState"
+                        }
+                    },
+                    "Message": "BatteryState",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "time": {
+                    "Message": "Int32",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Int32"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "timer1": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/tb_ign_battery_adapter_timer1",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 20,
+                                "Oneshot": false
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                },
+                "timer2": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/tb_ign_battery_adapter_timer2",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 1,
+                                "Oneshot": false
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                },
+                "top_bat_current": {
+                    "Message": "Float32",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Float32"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "top_bat_soc": {
+                    "Message": "Float32",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Float32"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

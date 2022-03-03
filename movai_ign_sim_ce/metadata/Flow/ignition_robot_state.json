@@ -1,0 +1,133 @@
+{
+    "Flow": {
+        "ignition_robot_state": {
+            "Description": "This Subflow is used with the Ignition Plugin: PosePublisher in the SDF file of the robot. Also it can generate the TFs of all frames of the robot based on the ignition information.",
+            "ExposedPorts": {
+                "dependency": {
+                    "init": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_robot_pose": {
+                    "remap": [
+                        "robot_pose/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_robot_state",
+            "LastUpdate": {
+                "date": "17/12/2021 at 12:52:14",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "351c72b6-d6a8-4353-b0e2-b28d27165be0": {
+                    "From": "remap/robot_pose/out",
+                    "To": "sim_tf_publisher/pose_in/in"
+                },
+                "3aa01cdb-7ace-43b0-9cdb-f5ac07244ffa": {
+                    "From": "init/depends/out",
+                    "To": "remap/depend/in"
+                },
+                "b795d44e-5153-45e7-a6b3-f5f6bdb36f60": {
+                    "From": "init/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/pose@geometry_msgs/TransformStamped[ignition.msgs.Pose"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/pose:=/$(flow robot_name)/robot_pose"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03126666666666667
+                        },
+                        "y": {
+                            "Value": 0.024199999999999996
+                        }
+                    }
+                },
+                "init": {
+                    "NodeLabel": "init",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.019466666666666667
+                        },
+                        "y": {
+                            "Value": 0.019466666666666667
+                        }
+                    }
+                },
+                "remap": {
+                    "NodeLabel": "remap",
+                    "Parameter": {
+                        "_namespace": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Template": "remap_sim_robot_pose",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03134479166666667
+                        },
+                        "y": {
+                            "Value": 0.010266666666666667
+                        }
+                    }
+                },
+                "sim_tf_publisher": {
+                    "NodeLabel": "sim_tf_publisher",
+                    "Parameter": {
+                        "base_link_frame": {
+                            "Type": "any",
+                            "Value": "$(flow frame_id)"
+                        },
+                        "generate_tfs": {
+                            "Type": "any",
+                            "Value": "$(flow generate_tfs)"
+                        }
+                    },
+                    "Template": "ignition_pose_to_tf",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.040611458333333336
+                        },
+                        "y": {
+                            "Value": 0.016533333333333334
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "frame_id": {
+                    "Description": "Parent frame name in the SDF of the robot to generate the TF",
+                    "Type": "any",
+                    "Value": "base_link"
+                },
+                "generate_tfs": {
+                    "Description": "Get the robot frame positions from Ignition and generate TFs",
+                    "Type": "any",
+                    "Value": "True"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in the Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

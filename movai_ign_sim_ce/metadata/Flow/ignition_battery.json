@@ -1,0 +1,155 @@
+{
+    "Flow": {
+        "ignition_battery": {
+            "Description": "This Subflow is to use with the Ignition Plugin \"LinearBatteryPlugin\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_battery": {
+                    "remap": [
+                        "charge/in",
+                        "stop_charge/in",
+                        "state/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_battery",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:17:24",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "107c480e-0bfc-4243-8f07-c2b6c3113702": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge_stop_charge/dependency/in"
+                },
+                "53825295-af08-4f10-aa30-410709e34e50": {
+                    "From": "dep/depends/out",
+                    "To": "remap/depend/in"
+                },
+                "e36c67f9-00c5-4080-b5fd-54e84125aad3": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge_state/dependency/in"
+                },
+                "e40a2594-304e-46d4-9629-504cda29caf1": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge_charge/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.016466666666666668
+                        },
+                        "y": {
+                            "Value": 0.0132
+                        }
+                    }
+                },
+                "ign_bridge_charge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/battery/$(flow battery_name)/recharge/start@std_msgs/Bool[ignition.msgs.Boolean"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/battery/$(flow battery_name)/recharge/start:=/$(flow remap_topic)/charge"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_charge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.028066666666666667
+                        },
+                        "y": {
+                            "Value": 0.020333333333333335
+                        }
+                    }
+                },
+                "ign_bridge_state": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/battery/$(flow battery_name)/state@sensor_msgs/BatteryState[ignition.msgs.BatteryState"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/battery/$(flow battery_name)/state:=/$(flow remap_topic)/state"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_state",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.028066666666666667
+                        },
+                        "y": {
+                            "Value": 0.013533333333333331
+                        }
+                    }
+                },
+                "ign_bridge_stop_charge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/battery/$(flow battery_name)/recharge/stop@std_msgs/Bool[ignition.msgs.Boolean"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/battery/$(flow battery_name)/recharge/stop:=/$(flow remap_topic)/stop_charge"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_stop_charge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.02826666666666667
+                        },
+                        "y": {
+                            "Value": 0.028533333333333334
+                        }
+                    }
+                },
+                "remap": {
+                    "NodeLabel": "remap",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_battery",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.028066666666666667
+                        },
+                        "y": {
+                            "Value": 0.006266666666666667
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "battery_name": {
+                    "Description": "battery name in the SDF plugin LinearBatteryPlugin",
+                    "Value": "linear_battery"
+                },
+                "remap_topic": {
+                    "Description": "",
+                    "Type": "string",
+                    "Value": "battery"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

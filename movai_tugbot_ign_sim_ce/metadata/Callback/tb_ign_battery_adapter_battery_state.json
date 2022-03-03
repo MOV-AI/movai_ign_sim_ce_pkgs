@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "tb_ign_battery_adapter_battery_state": {
+            "Info": "",
+            "Label": "tb_ign_battery_adapter_battery_state",
+            "LastUpdate": {
+                "date": "16/11/2021 at 13:35:53",
+                "user": "movai"
+            },
+            "Message": "sensor_msgs/BatteryState",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

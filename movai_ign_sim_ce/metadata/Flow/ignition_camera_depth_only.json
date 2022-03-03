@@ -1,0 +1,163 @@
+{
+    "Flow": {
+        "ignition_camera_depth_only": {
+            "Description": "This Subflow is to use with the Ignition Sensor \"depth_camera\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dependency": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_depthcam": {
+                    "output": [
+                        "image_raw/out",
+                        "camera_info/out",
+                        "points/out",
+                        "depth_image/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_camera_depth_only",
+            "LastUpdate": {
+                "date": "04/01/2022 at 15:24:28",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "04bb9eb3-a8fe-4eac-b8d0-fad406027c82": {
+                    "From": "tf_camera_front/tf_static/out",
+                    "To": "ign_bridge_depth/empty/in"
+                },
+                "07302d37-a1bf-4852-9ab4-7d149f6d9b38": {
+                    "From": "dependency/depends/out",
+                    "To": "output/depend/in"
+                },
+                "b24edf59-f17a-4be2-a19a-0a8dfb325537": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge_depth/dependency/in"
+                },
+                "ea782415-d0ff-4f68-b61a-6b1eb0ba8467": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge_camera_info/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dependency": {
+                    "NodeLabel": "dependency",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017266666666666666
+                        },
+                        "y": {
+                            "Value": 0.015133333333333334
+                        }
+                    }
+                },
+                "ign_bridge_camera_info": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/camera_info@sensor_msgs/CameraInfo[ignition.msgs.CameraInfo"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/camera_info:=/$(flow remap_topic)/camera_info"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_camera_info",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03461145833333334
+                        },
+                        "y": {
+                            "Value": 0.021133333333333334
+                        }
+                    }
+                },
+                "ign_bridge_depth": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/depth_image@sensor_msgs/Image[ignition.msgs.Image"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/depth_image:=/$(flow remap_topic)/depth_image"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_depth",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.034478125
+                        },
+                        "y": {
+                            "Value": 0.0132
+                        }
+                    }
+                },
+                "output": {
+                    "NodeLabel": "output",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        },
+                        "_ns": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_depthcam",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.029400000000000003
+                        },
+                        "y": {
+                            "Value": 0.0356
+                        }
+                    }
+                },
+                "tf_camera_front": {
+                    "CmdLine": {
+                        "cmdline": {
+                            "Value": "$(flow lens_pose) $(flow frame_name) $(flow robot_name)/$(flow frame_name)/$(flow sensor_name)"
+                        }
+                    },
+                    "NodeLabel": "tf_camera_front",
+                    "Template": "static_transform_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.023
+                        },
+                        "y": {
+                            "Value": 0.009066666666666667
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "frame_name": {
+                    "Description": "link that is attached the sensor in SDF model file",
+                    "Value": "depth_link"
+                },
+                "lens_pose": {
+                    "Description": "TF of Lens position from frame_name",
+                    "Value": "0 0 0 0 0 0"
+                },
+                "remap_topic": {
+                    "Description": "topic to be used in Mov.Ai",
+                    "Value": "depth_image"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                },
+                "sensor_name": {
+                    "Description": "Name of the sensor in SDF file.",
+                    "Value": "depth"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

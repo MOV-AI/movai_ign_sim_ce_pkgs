@@ -1,0 +1,56 @@
+{
+    "Node": {
+        "Joint_state_to_velocity": {
+            "Info": "Velocity feedback node",
+            "Label": "Joint_state_to_velocity",
+            "LastUpdate": {
+                "date": "07/12/2021 at 14:29:26",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "joint_name": {
+                    "Description": "Joint name of the robot to get the velocity.",
+                    "Type": "string",
+                    "Value": "wheel_joint"
+                },
+                "rpm_type": {
+                    "Description": "If True, will give results in RPM. Ideal to angular movement. If False, will return mm/s",
+                    "Type": "boolean",
+                    "Value": "True"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "joint_speed": {
+                    "Message": "Int32",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Int32"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "joint_state": {
+                    "In": {
+                        "in": {
+                            "Callback": "joint_state_to_velocity",
+                            "Message": "sensor_msgs/JointState"
+                        }
+                    },
+                    "Message": "JointState",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

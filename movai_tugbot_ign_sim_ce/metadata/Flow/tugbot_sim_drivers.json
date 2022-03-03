@@ -1,0 +1,658 @@
+{
+    "Flow": {
+        "tugbot_sim_drivers": {
+            "Container": {
+                "battery": {
+                    "ContainerFlow": "ignition_battery",
+                    "ContainerLabel": "battery",
+                    "Parameter": {
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.03213870595296224,
+                        0.05076515197753905
+                    ]
+                },
+                "camera_back": {
+                    "ContainerFlow": "ignition_camera_rgb",
+                    "ContainerLabel": "camera_back",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "camera_back"
+                        },
+                        "lens_pose": {
+                            "Type": "string",
+                            "Value": "0 0.0325 0.0125 -1.57079632679 0 -1.57079632679"
+                        },
+                        "remap_topic": {
+                            "Value": "camera_back/color"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "color"
+                        }
+                    },
+                    "Visualization": [
+                        0.04707022705078125,
+                        0.034835106404622396
+                    ]
+                },
+                "camera_front": {
+                    "ContainerFlow": "ignition_camera_rgb",
+                    "ContainerLabel": "camera_front",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "camera_front"
+                        },
+                        "lens_pose": {
+                            "Type": "string",
+                            "Value": "0 0.0325 0.0125 -1.57079632679 0 -1.57079632679"
+                        },
+                        "remap_topic": {
+                            "Value": "camera_front/color"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "color"
+                        }
+                    },
+                    "Visualization": [
+                        0.047225871896516974,
+                        0.01714386034039312
+                    ]
+                },
+                "depth_back": {
+                    "ContainerFlow": "ignition_camera_depth",
+                    "ContainerLabel": "depth_back",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "camera_back"
+                        },
+                        "lens_pose": {
+                            "Type": "string",
+                            "Value": "0 0.0175 0.0125 0 0 0"
+                        },
+                        "remap_topic": {
+                            "Value": "camera_back/depth"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "depth"
+                        }
+                    },
+                    "Visualization": [
+                        0.047094677734375,
+                        0.04121014506022136
+                    ]
+                },
+                "depth_front": {
+                    "ContainerFlow": "ignition_camera_depth",
+                    "ContainerLabel": "depth_front",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "camera_front"
+                        },
+                        "lens_pose": {
+                            "Type": "string",
+                            "Value": "0 0.0175 0.0125 0 0 0"
+                        },
+                        "remap_topic": {
+                            "Value": "camera_front/depth"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "depth"
+                        }
+                    },
+                    "Visualization": [
+                        0.04720649981889839,
+                        0.023706365243231473
+                    ]
+                },
+                "diffdrive": {
+                    "ContainerFlow": "ignition_diffdrive",
+                    "ContainerLabel": "diffdrive",
+                    "Parameter": {
+                        "remap_topic": {
+                            "Value": "wheels_controller"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.06757981924013408,
+                        0.03522972629441202
+                    ]
+                },
+                "emergency_button": {
+                    "ContainerFlow": "ignition_emergency_button",
+                    "ContainerLabel": "emergency_button",
+                    "Parameter": {
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.03204437238797461,
+                        0.0455145659063525
+                    ]
+                },
+                "gripper": {
+                    "ContainerFlow": "ignition_joint_cmd_controller",
+                    "ContainerLabel": "gripper",
+                    "Parameter": {
+                        "child_name": {
+                            "Value": "gripper"
+                        },
+                        "joint_name": {
+                            "Value": "gripper_joint"
+                        },
+                        "remap_topic": {
+                            "Value": "gripper_position"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.0676,
+                        0.018600000000000002
+                    ]
+                },
+                "gripper_attach": {
+                    "ContainerFlow": "ignition_joint_cmd_controller",
+                    "ContainerLabel": "gripper_attach",
+                    "Parameter": {
+                        "child_name": {
+                            "Value": "gripper_hand"
+                        },
+                        "joint_name": {
+                            "Value": "gripper_hand_joint"
+                        },
+                        "remap_topic": {
+                            "Value": "gripper/attach"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.0676,
+                        0.024800000000000003
+                    ]
+                },
+                "gripper_inductive_sensor": {
+                    "ContainerFlow": "ignition_lidar_2D",
+                    "ContainerLabel": "gripper_inductive_sensor",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "gripper"
+                        },
+                        "remap_topic": {
+                            "Value": "gripper_inductive"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "sensor_contact"
+                        }
+                    },
+                    "Visualization": [
+                        0.03189003406414585,
+                        0.027131445675363526
+                    ]
+                },
+                "ignition_base": {
+                    "ContainerFlow": "ignition_sim_base",
+                    "ContainerLabel": "ignition_base",
+                    "Visualization": [
+                        0.0120633332255368,
+                        0.02969923828661478
+                    ]
+                },
+                "imu": {
+                    "ContainerFlow": "ignition_imu",
+                    "ContainerLabel": "imu",
+                    "Parameter": {
+                        "frame_name": {
+                            "Type": "any",
+                            "Value": "imu_link"
+                        },
+                        "remap_topic": {
+                            "Value": "wheels_controller"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "imu"
+                        }
+                    },
+                    "Visualization": [
+                        0.03205503071266012,
+                        0.03914602628926007
+                    ]
+                },
+                "lidar_back": {
+                    "ContainerFlow": "ignition_lidar_2D",
+                    "ContainerLabel": "lidar_back",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "scan_back"
+                        },
+                        "remap_topic": {
+                            "Value": "laser_back"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "scan_back"
+                        }
+                    },
+                    "Visualization": [
+                        0.031900591661653335,
+                        0.02015002852639556
+                    ]
+                },
+                "lidar_front": {
+                    "ContainerFlow": "ignition_lidar_2D",
+                    "ContainerLabel": "lidar_front",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "scan_front"
+                        },
+                        "remap_topic": {
+                            "Value": "laser_front"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        },
+                        "sensor_name": {
+                            "Value": "scan_front"
+                        }
+                    },
+                    "Visualization": [
+                        0.03186893434810755,
+                        0.014214678010427077
+                    ]
+                },
+                "robotstate": {
+                    "ContainerFlow": "ignition_robot_state",
+                    "ContainerLabel": "robotstate",
+                    "Parameter": {
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.019740130615234375,
+                        0.02179889628092448
+                    ]
+                },
+                "velodyne": {
+                    "ContainerFlow": "ignition_lidar_3D",
+                    "ContainerLabel": "velodyne",
+                    "Parameter": {
+                        "frame_name": {
+                            "Value": "scan_omni"
+                        },
+                        "remap_topic": {
+                            "Value": "velodyne_points"
+                        },
+                        "robot_name": {
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": [
+                        0.03209003927896895,
+                        0.03296846835281982
+                    ]
+                }
+            },
+            "Description": "",
+            "ExposedPorts": {
+                "__ignition_battery": {
+                    "battery": [
+                        "remap/state/out",
+                        "remap/charge/in",
+                        "remap/stop_charge/in"
+                    ]
+                },
+                "__ignition_camera_depth": {
+                    "depth_back": [
+                        "output/camera_info/out",
+                        "output/depth_image/points/out",
+                        "output/depth_image/out"
+                    ],
+                    "depth_front": [
+                        "output/camera_info/out",
+                        "output/depth_image/points/out",
+                        "output/depth_image/out"
+                    ]
+                },
+                "__ignition_camera_rgb": {
+                    "camera_back": [
+                        "output/camera_info/out",
+                        "output/image_raw/out"
+                    ],
+                    "camera_front": [
+                        "output/camera_info/out",
+                        "output/image_raw/out"
+                    ]
+                },
+                "__ignition_diffdrive": {
+                    "diffdrive": [
+                        "outputs/odom/out"
+                    ]
+                },
+                "__ignition_emergency_button": {
+                    "emergency_button": [
+                        "remap/emergency_sw_detect/out"
+                    ]
+                },
+                "__ignition_imu": {
+                    "imu": [
+                        "output/imu/out"
+                    ]
+                },
+                "__ignition_lidar_2D": {
+                    "lidar_back": [
+                        "output/scan/out"
+                    ],
+                    "lidar_front": [
+                        "output/scan/out"
+                    ]
+                },
+                "__ignition_lidar_3D": {
+                    "velodyne": [
+                        "output/scan/out",
+                        "output/points/out"
+                    ]
+                },
+                "__ignition_sim_base": {
+                    "ignition_base": [
+                        "get_params/entry/in"
+                    ]
+                },
+                "emergency_sim_detector": {
+                    "emergency_sim_detector": [
+                        "cmd_vel/in"
+                    ]
+                },
+                "gripper_sim": {
+                    "gripper_controller": [
+                        "attach/in",
+                        "center/in",
+                        "center_sensor/out",
+                        "down_limit/out",
+                        "gripper_inductive_sensor/out",
+                        "roller_switch_detect/out",
+                        "force_confirmation/out"
+                    ]
+                },
+                "tugbot_ignition_battery_adapter": {
+                    "battery_adapter": [
+                        "top_bat_current/out",
+                        "time/out",
+                        "top_bat_soc/out"
+                    ]
+                },
+                "wait_state": {
+                    "wait_ready": [
+                        "exit/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "tugbot_sim_drivers",
+            "LastUpdate": {
+                "date": "21/12/2021 at 14:32:17",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "1489f4ca-a154-49a2-b879-83ba67f485dd": {
+                    "From": "bridge_cameras/exit/out",
+                    "To": "controllers/entry/in"
+                },
+                "26291446-960a-4164-90c2-c1e769c6f559": {
+                    "From": "controllers/exit/out",
+                    "To": "diffdrive__init/entry/in"
+                },
+                "2ba05e10-a834-4615-adef-0bfdc5e170f1": {
+                    "From": "bridge_cameras/exit/out",
+                    "To": "camera_front__dependency/entry/in"
+                },
+                "2f73d1cb-d365-47d9-99dc-288f337e94d7": {
+                    "From": "controllers/exit/out",
+                    "To": "gripper_attach__dep/entry/in"
+                },
+                "333270d3-612d-4f3f-9f77-01b6448f45b2": {
+                    "From": "gripper_controller/center_action/out",
+                    "To": "gripper__input_joint/cmd/in"
+                },
+                "35df6290-4ce7-4a8f-9ec1-ff3e249f902c": {
+                    "From": "bridge_cameras/exit/out",
+                    "To": "camera_back__dependency/entry/in"
+                },
+                "369694d5-0ad0-4e75-ba84-21583ad71766": {
+                    "From": "controllers/exit/out",
+                    "To": "gripper__dep/entry/in"
+                },
+                "3a2d1abc-069f-44d4-9018-2eb24ef5d576": {
+                    "From": "controllers/exit/out",
+                    "To": "wait_ready/entry/in"
+                },
+                "3f85c4ba-f0fe-40e0-81da-ff1f099073ce": {
+                    "From": "emergency_sim_detector/release_cmd/out",
+                    "To": "gripper_controller/attach/in"
+                },
+                "4225d088-c151-4a6a-869f-b7b54cd33b4e": {
+                    "From": "load_sensors/exit/out",
+                    "To": "bridge_cameras/entry/in"
+                },
+                "4496364d-6bef-4896-a52f-d4f9baab9f09": {
+                    "From": "load_sensors/exit/out",
+                    "To": "emergency_button__dep/entry/in"
+                },
+                "52401ac7-9729-4c2c-9bb4-eb8f2be778ff": {
+                    "From": "load_sensors/exit/out",
+                    "To": "gripper_inductive_sensor__dependency/entry/in"
+                },
+                "531c3668-a6f7-4114-8995-3ece3c48bd59": {
+                    "From": "controllers/exit/out",
+                    "To": "emergency_sim_detector/trans/in"
+                },
+                "54483319-9020-4757-b089-e148d4702511": {
+                    "From": "controllers/exit/out",
+                    "To": "gripper_controller/trans_in/in"
+                },
+                "566e5d92-b741-47ca-a315-affa91c42dc5": {
+                    "From": "load_sensors/exit/out",
+                    "To": "lidar_back__dependency/entry/in"
+                },
+                "569e78b6-ce28-4c68-bbbb-d9aec8c53c17": {
+                    "From": "bridge_cameras/exit/out",
+                    "To": "depth_back__dependency/entry/in"
+                },
+                "5f20687c-2c5f-4755-a6fb-e24ef583659c": {
+                    "From": "load_sensors/exit/out",
+                    "To": "lidar_front__dependency/entry/in"
+                },
+                "a5f72f89-ab30-40d5-bd0d-a1fcf0b585bd": {
+                    "From": "gripper_controller/attach_action/out",
+                    "To": "gripper_attach__input_joint/cmd/in"
+                },
+                "aa6942d5-f581-45fa-81db-ff0ebe06df0c": {
+                    "From": "gripper_inductive_sensor__output/scan/out",
+                    "To": "gripper_controller/gripper_sensor/in"
+                },
+                "af3edc1f-2f15-4e8e-bac9-e27debec3bdc": {
+                    "From": "ignition_base__transition_out/exit/out",
+                    "To": "load_sensors/entry/in"
+                },
+                "c6b0715a-aed3-496a-91ed-09b710839f26": {
+                    "From": "emergency_button__remap/emergency_sw_detect/out",
+                    "To": "emergency_sim_detector/sw_detection/in"
+                },
+                "ced62051-44a9-42df-874f-d4142bcfb43b": {
+                    "From": "load_sensors/exit/out",
+                    "To": "velodyne__dependency/entry/in"
+                },
+                "d1569962-e092-4572-9fff-92f7a1b8147a": {
+                    "From": "ignition_base__transition_out/exit/out",
+                    "To": "robotstate__init/entry/in"
+                },
+                "d84b80c2-18c9-4308-ac7b-a3d1e41f8d7d": {
+                    "From": "load_sensors/exit/out",
+                    "To": "battery__dep/entry/in"
+                },
+                "f014df25-a6f2-4d50-8cba-91815619ee77": {
+                    "From": "bridge_cameras/exit/out",
+                    "To": "depth_front__dependency/entry/in"
+                },
+                "f33983fc-6d45-4101-8289-4b02f2d6be7f": {
+                    "From": "emergency_sim_detector/cmd_vel_control/out",
+                    "To": "diffdrive__outputs/cmd_vel/in"
+                },
+                "f722980a-4437-444b-b051-5db8aaf15283": {
+                    "From": "load_sensors/exit/out",
+                    "To": "imu__dependency/entry/in"
+                },
+                "f87de76b-8a58-4000-a6fd-9931e7e91350": {
+                    "From": "battery__remap/state/out",
+                    "To": "battery_adapter/battery_state/in"
+                }
+            },
+            "NodeInst": {
+                "battery_adapter": {
+                    "NodeLabel": "battery_adapter",
+                    "Template": "tugbot_ignition_battery_adapter",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.040851766432507916
+                        },
+                        "y": {
+                            "Value": 0.054165006315124255
+                        }
+                    }
+                },
+                "bridge_cameras": {
+                    "NodeLabel": "bridge_cameras",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "1"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03925791625976563
+                        },
+                        "y": {
+                            "Value": 0.029579385375976566
+                        }
+                    }
+                },
+                "controllers": {
+                    "NodeLabel": "controllers",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "1"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.05161531244913737
+                        },
+                        "y": {
+                            "Value": 0.029588920084635418
+                        }
+                    }
+                },
+                "emergency_sim_detector": {
+                    "NodeLabel": "emergency_sim_detector",
+                    "Template": "emergency_sim_detector",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.05925046312694485
+                        },
+                        "y": {
+                            "Value": 0.04257115309935286
+                        }
+                    }
+                },
+                "gripper_controller": {
+                    "NodeLabel": "gripper_controller",
+                    "Template": "gripper_sim",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.059333519167874625
+                        },
+                        "y": {
+                            "Value": 0.01715032989067097
+                        }
+                    }
+                },
+                "load_sensors": {
+                    "NodeLabel": "load_sensors",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "1"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.019664213053385414
+                        },
+                        "y": {
+                            "Value": 0.029613491821289067
+                        }
+                    }
+                },
+                "wait_ready": {
+                    "NodeLabel": "wait_ready",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "5"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.07228871256510418
+                        },
+                        "y": {
+                            "Value": 0.029664458211263022
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "robot_name": {
+                    "Description": "var to define the robot name used on the Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "gripper_hand_sim_loop": {
+            "Info": "",
+            "Label": "gripper_hand_sim_loop",
+            "LastUpdate": {
+                "date": "30/11/2021 at 18:50:31",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/TF",
+            "Py3Lib": {
+                "tf": {
+                    "Class": false,
+                    "Module": "tf"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

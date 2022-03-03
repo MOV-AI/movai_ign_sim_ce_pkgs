@@ -1,0 +1,95 @@
+{
+    "Flow": {
+        "ignition_emergency_button": {
+            "Description": "This Subflow is to use with the Ignition Plugin \"EmergencyButtonModel\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_emergency": {
+                    "remap": [
+                        "emergency_sw_detect/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_emergency_button",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:25:31",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "536592d6-d681-409f-80dc-6e1336542e32": {
+                    "From": "dep/depends/out",
+                    "To": "remap/depend/in"
+                },
+                "597e963c-b594-4156-8a30-a9050578af5f": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.016466666666666668
+                        },
+                        "y": {
+                            "Value": 0.012133333333333335
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/$(flow robot_name)/emergency_sw_detect@std_msgs/Bool[ignition.msgs.Boolean"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.027866666666666668
+                        },
+                        "y": {
+                            "Value": 0.0176
+                        }
+                    }
+                },
+                "remap": {
+                    "NodeLabel": "remap",
+                    "Parameter": {
+                        "_namespace": {
+                            "Type": "string",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Template": "remap_sim_emergency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.031611458333333335
+                        },
+                        "y": {
+                            "Value": 0.01
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "robot_name": {
+                    "Description": "Robot name in Ignition",
+                    "Type": "any",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

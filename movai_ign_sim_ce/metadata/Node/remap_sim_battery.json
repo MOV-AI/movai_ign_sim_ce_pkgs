@@ -1,0 +1,72 @@
+{
+    "Node": {
+        "remap_sim_battery": {
+            "Info": "remap battery simulation ports",
+            "Label": "remap_sim_battery",
+            "LastUpdate": {
+                "date": "16/11/2021 at 13:26:27",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Type": "string",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "charge": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Message": "Bool",
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "state": {
+                    "Message": "BatteryState",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/BatteryState"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "stop_charge": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Message": "Bool",
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Subscriber"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

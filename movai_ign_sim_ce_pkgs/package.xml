@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>movai_ign_sim_ce_pkgs</name>
+    <version>0.0.1</version>
+    <description>Movai Ignition simulation base package for CE</description>
+    <url>https://github.com/MOV-AI/movai_ign_sim_ce_pkgs</url>
+    <maintainer email="mithun@mov.ai">Mithun Kinarullathil</maintainer>
+    <author email="filipe.almeida@mov.ai">Filipe Almeida</author>
+
+    <license>Mov.AI License version 1.0</license>
+
+    <export>
+        <build_version>0</build_version>
+        <metapackage/>
+    </export>
+
+</package>

@@ -1,0 +1,196 @@
+{
+    "Node": {
+        "gripper_sim": {
+            "Info": "Tugbot Central Gripper controller to Ignition Simulator. This node will control the gripper actions and provides feedback data.",
+            "Label": "gripper_sim",
+            "LastUpdate": {
+                "date": "17/12/2021 at 16:49:50",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "cart_gripper_distance": {
+                    "Description": "Detectable distance of the Gripper Inductive Sensor. ",
+                    "Type": "number",
+                    "Value": "0.0075"
+                },
+                "center_force": {
+                    "Description": "The force (in Newton) applied to the gripper joint to make it move. This force should be superior to the attrition defined in the model of the gripper, or else the gripper won't move. \nAlways pay attention to some parameters in your model such as the max velocity for the joint, as well as the accumulated effort. ",
+                    "Type": "number",
+                    "Value": "4"
+                },
+                "center_pos_tolerance": {
+                    "Description": "Tolerance for the angular position (in radians) of the gripper to be considered centered.  \nCentered = 0.0 +/- tolerance",
+                    "Type": "number",
+                    "Value": "0.05"
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "attach": {
+                    "In": {
+                        "in": {
+                            "Callback": "gripper_sim_attach",
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Message": "Bool",
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "attach_action": {
+                    "Message": "Float64",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Float64"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "center": {
+                    "In": {
+                        "in": {
+                            "Callback": "gripper_sim_center",
+                            "Message": "std_msgs/Empty"
+                        }
+                    },
+                    "Message": "Empty",
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "center_action": {
+                    "Message": "Float64",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Float64"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "center_sensor": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "center_state": {
+                    "Message": "Float64",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Float64"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "down_limit": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "force_confirmation": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "gripper_inductive_sensor": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "gripper_sensor": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/gripper_sim_sensor_feedback",
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "loop": {
+                    "In": {
+                        "in": {
+                            "Callback": "gripper_sim_loop",
+                            "Message": "movai_msgs/TF",
+                            "Parameter": {
+                                "Child": "gripper",
+                                "Frequency": 10,
+                                "Parent": "base_link"
+                            }
+                        }
+                    },
+                    "Message": "TF",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/TFSubscriber"
+                },
+                "loop_gripper_hand": {
+                    "In": {
+                        "in": {
+                            "Callback": "gripper_hand_sim_loop",
+                            "Message": "movai_msgs/TF",
+                            "Parameter": {
+                                "Child": "gripper_hand",
+                                "Frequency": 10,
+                                "Parent": "gripper"
+                            }
+                        }
+                    },
+                    "Message": "TF",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/TFSubscriber"
+                },
+                "roller_switch_detect": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "trans_in": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

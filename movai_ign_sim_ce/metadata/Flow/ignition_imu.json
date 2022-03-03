@@ -1,0 +1,137 @@
+{
+    "Flow": {
+        "ignition_imu": {
+            "Description": "This Subflow is to use with the Ignition Sensor \"imu\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dependency": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_imu": {
+                    "output": [
+                        "imu/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_imu",
+            "LastUpdate": {
+                "date": "06/01/2022 at 18:31:59",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "a921f4cb-d1ed-41c0-ab1d-eeaa41de5cfe": {
+                    "From": "dependency/depends/out",
+                    "To": "output/depend/in"
+                },
+                "d2a10c0b-a933-45b7-bd70-a721f5a6e7f4": {
+                    "From": "tf_imu/tf_static/out",
+                    "To": "ign_bridge/empty/in"
+                },
+                "ddc60705-685b-4181-9ed6-856b2eaea273": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dependency": {
+                    "NodeLabel": "dependency",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017933333333333336
+                        },
+                        "y": {
+                            "Value": 0.015266666666666668
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/imu@sensor_msgs/Imu[ignition.msgs.IMU"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/imu:=/$(flow remap_topic)/imu"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.027333333333333334
+                        },
+                        "y": {
+                            "Value": 0.01566666666666667
+                        }
+                    }
+                },
+                "output": {
+                    "NodeLabel": "output",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        },
+                        "_ns": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_imu",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03166666666666667
+                        },
+                        "y": {
+                            "Value": 0.009199999999999998
+                        }
+                    }
+                },
+                "tf_imu": {
+                    "CmdLine": {
+                        "cmdline": {
+                            "Value": "$(flow sensor_pose) $(flow frame_name) $(flow robot_name)/$(flow frame_name)/$(flow sensor_name)"
+                        }
+                    },
+                    "NodeLabel": "tf_imu",
+                    "Template": "static_transform_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.019533333333333333
+                        },
+                        "y": {
+                            "Value": 0.02206666666666667
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "frame_name": {
+                    "Description": "link that is attached the sensor in SDF model file",
+                    "Value": "imu_link"
+                },
+                "remap_topic": {
+                    "Description": "topic to be used in Mov.Ai",
+                    "Value": "imu_sensor"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                },
+                "sensor_name": {
+                    "Description": "Name of the sensor in SDF file.",
+                    "Value": "imu"
+                },
+                "sensor_pose": {
+                    "Description": "Sensor position relative to the frame_name:\nx y z R P Y",
+                    "Type": "any",
+                    "Value": "0 0 0 0 0 0"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

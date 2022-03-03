@@ -1,0 +1,75 @@
+{
+    "Node": {
+        "bool_publisher": {
+            "Info": "std_msgs/Bool Publisher with transitioning.",
+            "Label": "bool_publisher",
+            "LastUpdate": {
+                "date": "31/08/2021 at 11:01:12",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "value": {
+                    "Description": "Boolean value to publish",
+                    "Value": "False"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/place_holder",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "loop": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/bool_publisher",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 10,
+                                "Oneshot": false
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                },
+                "std_msgs_publisher": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

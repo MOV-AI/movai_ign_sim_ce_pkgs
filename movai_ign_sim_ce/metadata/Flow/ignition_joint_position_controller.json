@@ -1,0 +1,110 @@
+{
+    "Flow": {
+        "ignition_joint_position_controller": {
+            "Description": "This Subflow is to use with the Ignition Plugin \"JointPositionController\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_joint_pose": {
+                    "input": [
+                        "pose/in"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_joint_position_controller",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:15:19",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "ea88f1ca-5bc7-44db-9c5f-03c16f6914c6": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                },
+                "fbca5932-0b10-41df-bf34-9e63999ad952": {
+                    "From": "dep/depends/out",
+                    "To": "input/depend/in"
+                }
+            },
+            "NodeInst": {
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.014466666666666668
+                        },
+                        "y": {
+                            "Value": 0.013066666666666667
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/joint/$(flow joint_name)/0/cmd_pos@std_msgs/Float64]ignition.msgs.Double"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/joint/$(flow joint_name)/0/cmd_pos:=/$(flow remap_topic)/pose"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.026411458333333332
+                        },
+                        "y": {
+                            "Value": 0.0134
+                        }
+                    }
+                },
+                "input": {
+                    "NodeLabel": "input",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_joint_pose",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0264
+                        },
+                        "y": {
+                            "Value": 0.006866666666666668
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "child_name": {
+                    "Description": "Child frame name in the Joint",
+                    "Type": "any",
+                    "Value": "arm_link"
+                },
+                "joint_name": {
+                    "Description": "Joint name of the robot model that you want control",
+                    "Value": "arm_joint"
+                },
+                "remap_topic": {
+                    "Description": "Topic name that you want to use in Mov.Ai",
+                    "Type": "any",
+                    "Value": "joint_controller"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

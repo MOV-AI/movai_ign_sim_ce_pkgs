@@ -1,0 +1,96 @@
+{
+    "Flow": {
+        "ignition_string_sub": {
+            "Description": "Simple string subscriber to Ignition string publisher.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_string": {
+                    "remap": [
+                        "string_msg/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_string_sub",
+            "LastUpdate": {
+                "date": "17/12/2021 at 15:26:02",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "af470656-4d64-4cf2-ac24-00ecd5167f7a": {
+                    "From": "dep/depends/out",
+                    "To": "remap/depend/in"
+                },
+                "ed188d21-009d-4e6a-b7de-6669cfe1d6a4": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0164
+                        },
+                        "y": {
+                            "Value": 0.012066666666666667
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/$(flow topic_name)@std_msgs/String[ignition.msgs.StringMsg"
+                        },
+                        "remap": {
+                            "Value": "/$(flow topic_name):=/$(flow topic_name)/string_msg"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03214479166666667
+                        },
+                        "y": {
+                            "Value": 0.017066666666666667
+                        }
+                    }
+                },
+                "remap": {
+                    "NodeLabel": "remap",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow topic_name)"
+                        }
+                    },
+                    "Template": "remap_sim_string",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.032
+                        },
+                        "y": {
+                            "Value": 0.0102
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "topic_name": {
+                    "Description": "",
+                    "Value": "dummy_topic"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "Callback": {
+        "wait_state_entry": {
+            "Info": "",
+            "Label": "wait_state_entry",
+            "LastUpdate": "",
+            "Message": "movai_msgs/Transition",
+            "Py3Lib": {
+                "time": {
+                    "Class": false,
+                    "Module": "time"
+                }
+            },
+            "User": "joao",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

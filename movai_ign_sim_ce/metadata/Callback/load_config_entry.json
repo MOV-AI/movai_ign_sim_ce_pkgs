@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "load_config_entry": {
+            "Info": "",
+            "Label": "load_config_entry",
+            "LastUpdate": {
+                "date": "01/04/2021 at 17:20:29",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Transition",
+            "User": "movai",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

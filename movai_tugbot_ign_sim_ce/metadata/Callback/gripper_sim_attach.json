@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "gripper_sim_attach": {
+            "Info": "",
+            "Label": "gripper_sim_attach",
+            "LastUpdate": {
+                "date": "15/09/2021 at 11:12:53",
+                "user": "movai"
+            },
+            "Message": "std_msgs/Bool",
+            "Py3Lib": {
+                "Float64": {
+                    "Class": "Float64",
+                    "Module": "std_msgs.msg"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

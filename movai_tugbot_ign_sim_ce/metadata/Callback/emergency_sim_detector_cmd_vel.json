@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "emergency_sim_detector_cmd_vel": {
+            "Info": "",
+            "Label": "emergency_sim_detector_cmd_vel",
+            "LastUpdate": {
+                "date": "17/12/2021 at 16:31:00",
+                "user": "movai"
+            },
+            "Message": "geometry_msgs/Twist",
+            "Py3Lib": {
+                "Twist": {
+                    "Class": "Twist",
+                    "Module": "geometry_msgs.msg"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

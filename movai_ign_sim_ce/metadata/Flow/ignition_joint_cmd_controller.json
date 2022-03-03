@@ -1,0 +1,108 @@
+{
+    "Flow": {
+        "ignition_joint_cmd_controller": {
+            "Description": "This Subflow is to use with the Ignition Plugin \"JointController\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dep": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_joint_cmd": {
+                    "input_joint": [
+                        "cmd/in"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_joint_cmd_controller",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:27:00",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "2772d2e3-b97e-4e3f-bbb5-28a01e7b5ca1": {
+                    "From": "dep/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                },
+                "dd839114-7aff-4bd8-97c0-0b7b6b362d77": {
+                    "From": "dep/depends/out",
+                    "To": "input_joint/depend/in"
+                }
+            },
+            "NodeInst": {
+                "dep": {
+                    "NodeLabel": "dep",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.014466666666666668
+                        },
+                        "y": {
+                            "Value": 0.013066666666666667
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/joint/$(flow joint_name)/cmd_vel@std_msgs/Float64]ignition.msgs.Double"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/joint/$(flow joint_name)/cmd_vel:=/$(flow remap_topic)/cmd"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.027278125
+                        },
+                        "y": {
+                            "Value": 0.013333333333333334
+                        }
+                    }
+                },
+                "input_joint": {
+                    "NodeLabel": "input_joint",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_joint_cmd",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0238
+                        },
+                        "y": {
+                            "Value": 0.007066666666666668
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "child_name": {
+                    "Description": "Child frame name to publish TF",
+                    "Value": "arm_link"
+                },
+                "joint_name": {
+                    "Description": "Joint name of the robot model that you want control",
+                    "Value": "arm_joint"
+                },
+                "remap_topic": {
+                    "Description": "Topic name that you want to use in control",
+                    "Value": "joint_controller"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

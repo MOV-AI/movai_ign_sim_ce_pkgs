@@ -1,0 +1,50 @@
+{
+    "Node": {
+        "remap_sim_joint_cmd": {
+            "Info": "remap simulation input ports to control joint",
+            "Label": "remap_sim_joint_cmd",
+            "LastUpdate": {
+                "date": "26/10/2021 at 10:25:13",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "cmd": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "std_msgs/Float64"
+                        }
+                    },
+                    "Message": "Float64",
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

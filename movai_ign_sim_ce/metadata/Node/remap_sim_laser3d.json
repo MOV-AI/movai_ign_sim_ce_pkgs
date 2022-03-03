@@ -1,0 +1,59 @@
+{
+    "Node": {
+        "remap_sim_laser3d": {
+            "Info": "remap 3D Lidar scan simulation output ports",
+            "Label": "remap_sim_laser3d",
+            "LastUpdate": {
+                "date": "26/10/2021 at 08:24:36",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "points": {
+                    "Message": "PointCloud2",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/PointCloud2"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "scan": {
+                    "Message": "LaserScan",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

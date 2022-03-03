@@ -1,0 +1,50 @@
+{
+    "Node": {
+        "remap_sim_joint_state": {
+            "Info": "remap JointState simulation output ports",
+            "Label": "remap_sim_joint_state",
+            "LastUpdate": {
+                "date": "07/12/2021 at 11:44:38",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Type": "any",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "joint_state": {
+                    "Message": "JointState",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/JointState"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

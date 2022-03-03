@@ -1,0 +1,54 @@
+{
+    "Node": {
+        "ignition_parameter_bridge": {
+            "CmdLine": {
+                "arg": {
+                    "Description": "Bridge between Ignition msgs and ROS msgs.\nthe argument should be:\n\"TOPIC_TO_BRIDGE\" + \"@\" + \"ROS_MSG_TYPE\" + \"DIRECTIONAL_SIGN\" + \"IGNITION_MSG_TYPE\"\n\nDIRECTIONAL_SIGN can be:\n@ = Bi-directional. The msg will be transport from ROS to Ignition or from Ignition to ROS.\n] = From ROS to Ignition. When you want to publish to the simulator. (controllers, cmd_vel...)\n[ = From Ignition to ROS. When you want to subscribe to the simulator. (sensors, tf, status...)\n\nExample:\n\n/topic_name@geometry_msgs/Twist]ignition.msgs.Twist",
+                    "Value": "/topic_name@geometry_msgs/Twist]ignition.msgs.Twist"
+                },
+                "remap": {
+                    "Description": "Remap Ignition topic names to useful names in the Flow:\nExample:\n/topic:=/new_topic",
+                    "Value": "/topic:=/new_topic"
+                }
+            },
+            "Info": "Ignition Parameter bridge ROS Node. This node is used to create a communication between ROS and Ignition Topics.",
+            "Label": "ignition_parameter_bridge",
+            "LastUpdate": {
+                "date": "17/12/2021 at 12:30:52",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Path": "/opt/mov.ai/workspaces/USER_ROS1/lib/ros_ign_bridge/parameter_bridge",
+            "Persistent": true,
+            "PortsInst": {
+                "dependency": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "empty": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "tf2_msgs/TFMessage"
+                        }
+                    },
+                    "Message": "TFMessage",
+                    "Package": "tf2_msgs",
+                    "Template": "ROS1/Subscriber"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

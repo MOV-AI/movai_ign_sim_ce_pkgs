@@ -1,0 +1,79 @@
+{
+    "Node": {
+        "remap_sim_depthcam": {
+            "Info": "remap camera simulation output ports",
+            "Label": "remap_sim_depthcam",
+            "LastUpdate": {
+                "date": "02/11/2021 at 10:06:37",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "camera_info": {
+                    "Message": "CameraInfo",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/CameraInfo"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "depth_image": {
+                    "Message": "Image",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/Image"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "depth_image/points": {
+                    "Message": "PointCloud2",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/PointCloud2"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "image": {
+                    "Message": "Image",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/Image"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "Node": {
+        "remap_sim_robot_pose": {
+            "Info": "remap robot_pose simulation output ports",
+            "Label": "remap_sim_robot_pose",
+            "LastUpdate": {
+                "date": "22/11/2021 at 16:26:50",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Type": "any",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "robot_pose": {
+                    "Message": "TransformStamped",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/TransformStamped"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

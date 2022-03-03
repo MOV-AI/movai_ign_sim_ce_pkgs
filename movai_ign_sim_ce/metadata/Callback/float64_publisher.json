@@ -1,0 +1,26 @@
+{
+    "Callback": {
+        "float64_publisher": {
+            "Info": "",
+            "Label": "float64_publisher",
+            "LastUpdate": {
+                "date": "31/08/2021 at 11:00:36",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Transition",
+            "Py3Lib": {
+                "sleep": {
+                    "Class": "sleep",
+                    "Module": "rospy"
+                },
+                "std_msgs": {
+                    "Class": false,
+                    "Module": "std_msgs"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

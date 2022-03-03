@@ -1,0 +1,125 @@
+{
+    "Flow": {
+        "ignition_diffdrive": {
+            "Description": "This Subflow is to use with the Ignition Plugin \"DiffDrive\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "init": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_diffdrive": {
+                    "outputs": [
+                        "cmd_vel/in",
+                        "odom/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_diffdrive",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:23:38",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "2b10e599-6c2c-417a-8c30-512820829080": {
+                    "From": "init/depends/out",
+                    "To": "outputs/depend/in"
+                },
+                "68a2cce8-a94f-48dc-9c55-ecfd9c021331": {
+                    "From": "init/depends/out",
+                    "To": "ign_bridge_cmd/dependency/in"
+                },
+                "70f0b647-15ee-4a48-9f30-e03cae10e0c0": {
+                    "From": "init/depends/out",
+                    "To": "ign_bridge_odom/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "ign_bridge_cmd": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/cmd_vel@geometry_msgs/Twist]ignition.msgs.Twist"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/cmd_vel:=/$(flow remap_topic)/cmd_vel"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_cmd",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.032478125000000004
+                        },
+                        "y": {
+                            "Value": 0.006866666666666667
+                        }
+                    }
+                },
+                "ign_bridge_odom": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/model/$(flow robot_name)/odometry@nav_msgs/Odometry[ignition.msgs.Odometry"
+                        },
+                        "remap": {
+                            "Value": "/model/$(flow robot_name)/odometry:=/$(flow remap_topic)/odom"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_odom",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.032478125
+                        },
+                        "y": {
+                            "Value": 0.0184
+                        }
+                    }
+                },
+                "init": {
+                    "NodeLabel": "init",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.018533333333333336
+                        },
+                        "y": {
+                            "Value": 0.0118
+                        }
+                    }
+                },
+                "outputs": {
+                    "NodeLabel": "outputs",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_diffdrive",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03693333333333333
+                        },
+                        "y": {
+                            "Value": 0.011466666666666667
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "remap_topic": {
+                    "Description": "DiffDrive Topic base to use inside Mov.Ai\nexample:\n\nremap_topic = /diff_drive_robot\n\n-> cmd_vel --> /diff_drive_robot/cmd_vel\n-> odometry --> /diff_drive_robot/odom",
+                    "Value": "wheels_controller"
+                },
+                "robot_name": {
+                    "Description": "Robot Model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

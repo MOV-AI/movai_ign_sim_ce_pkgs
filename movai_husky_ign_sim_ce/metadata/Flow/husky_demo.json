@@ -1,0 +1,230 @@
+{
+    "Flow": {
+        "husky_demo": {
+            "Container": {
+                "husky_drivers": {
+                    "ContainerFlow": "husky_sim_drivers",
+                    "ContainerLabel": "husky_drivers",
+                    "Parameter": {
+                        "robot_name": {
+                            "Value": "husky"
+                        }
+                    },
+                    "Visualization": [
+                        0.01626666666666667,
+                        0.0041333333333333335
+                    ]
+                }
+            },
+            "Description": "",
+            "ExposedPorts": {},
+            "Info": "",
+            "Label": "husky_demo",
+            "LastUpdate": {
+                "date": "02/11/2021 at 10:38:15",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "076913ac-17b1-475a-89a4-077bf5bf467b": {
+                    "From": "cmd_vel_move/exit/out",
+                    "To": "wait/entry/in"
+                },
+                "09f337cc-b5be-4ed0-8cee-b173577ce234": {
+                    "From": "wait2/exit/out",
+                    "To": "stop_camera/entry/in"
+                },
+                "0cf9601b-3f0d-449a-bb07-831e1c605798": {
+                    "From": "wait/exit/out",
+                    "To": "stop_move/entry/in"
+                },
+                "1e918b4f-edfd-445a-af26-b2f912d5368f": {
+                    "From": "start/start/start",
+                    "To": "husky_drivers__init_sim__get_params/entry/in"
+                },
+                "297c5740-20a1-4051-b5af-e19d9de37224": {
+                    "From": "husky_drivers__diffdrive__outputs/odom/out",
+                    "To": "odom/odometry/in"
+                },
+                "5c8ec6c5-2473-4f21-8cfb-387e53ce5100": {
+                    "From": "husky_drivers__wait_ready/exit/out",
+                    "To": "cmd_vel_move/entry/in"
+                },
+                "7f4eab0f-83f8-4b87-8f90-a01560022e18": {
+                    "From": "cmd_vel_move/cmd_msgs_publisher/out",
+                    "To": "husky_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "987d0351-1ad8-416a-8e14-f7acfe6c0a02": {
+                    "From": "stop_camera/exit/out",
+                    "To": "wait3/entry/in"
+                },
+                "b12468f7-4269-4021-9e92-aa3a7578e9d8": {
+                    "From": "stop_move/cmd_msgs_publisher/out",
+                    "To": "husky_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "b1520bc0-a8a5-45de-99b1-3656f845dbef": {
+                    "From": "rotate_camera/exit/out",
+                    "To": "wait2/entry/in"
+                },
+                "d5ed68c3-3c44-4bb4-a502-0e73d53879a3": {
+                    "From": "stop_move/exit/out",
+                    "To": "rotate_camera/entry/in"
+                },
+                "f60a5bb3-498f-410a-8818-c9ef6f19783b": {
+                    "From": "rotate_camera/std_msgs_publisher/out",
+                    "To": "husky_drivers__gimbal_pan__input_joint/cmd/in"
+                },
+                "f654b05f-e6d1-4e91-a8b8-d967fca2b918": {
+                    "From": "wait3/exit/out",
+                    "To": "cmd_vel_move/entry/in"
+                },
+                "f8f8993a-e664-4d2e-8ede-2be5035ab955": {
+                    "From": "stop_camera/std_msgs_publisher/out",
+                    "To": "husky_drivers__gimbal_pan__input_joint/cmd/in"
+                }
+            },
+            "NodeInst": {
+                "cmd_vel_move": {
+                    "NodeLabel": "cmd_vel_move",
+                    "Parameter": {
+                        "angular": {
+                            "Value": "0.5"
+                        },
+                        "linear": {
+                            "Value": "0.5"
+                        }
+                    },
+                    "Template": "cmd_vel_pub",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.008333333333333333
+                        },
+                        "y": {
+                            "Value": 0.0256
+                        }
+                    }
+                },
+                "odom": {
+                    "NodeLabel": "odom",
+                    "Template": "tf_odometry",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.029
+                        },
+                        "y": {
+                            "Value": 0.006333333333333334
+                        }
+                    }
+                },
+                "rotate_camera": {
+                    "NodeLabel": "rotate_camera",
+                    "Parameter": {
+                        "value": {
+                            "Value": "0.5"
+                        }
+                    },
+                    "Template": "float64_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03166666666666667
+                        },
+                        "y": {
+                            "Value": 0.025666666666666667
+                        }
+                    }
+                },
+                "stop_camera": {
+                    "NodeLabel": "stop_camera",
+                    "Parameter": {
+                        "value": {
+                            "Value": "0.0"
+                        }
+                    },
+                    "Template": "float64_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.04686666666666667
+                        },
+                        "y": {
+                            "Value": 0.024333333333333335
+                        }
+                    }
+                },
+                "stop_move": {
+                    "NodeLabel": "stop_move",
+                    "Parameter": {
+                        "angular": {
+                            "Value": "0.0"
+                        },
+                        "linear": {
+                            "Value": "0.0"
+                        }
+                    },
+                    "Template": "cmd_vel_pub",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.026533333333333336
+                        },
+                        "y": {
+                            "Value": 0.0332
+                        }
+                    }
+                },
+                "wait": {
+                    "NodeLabel": "wait",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "5"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.01966666666666667
+                        },
+                        "y": {
+                            "Value": 0.03153333333333334
+                        }
+                    }
+                },
+                "wait2": {
+                    "NodeLabel": "wait2",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "5"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.038733333333333335
+                        },
+                        "y": {
+                            "Value": 0.016933333333333335
+                        }
+                    }
+                },
+                "wait3": {
+                    "NodeLabel": "wait3",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "5"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 821
+                        },
+                        "y": {
+                            "Value": 431
+                        }
+                    }
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "Node": {
+        "wait_state": {
+            "Info": "State that waits for a set amount of seconds (param: wait_time) before transitioning to the next state",
+            "Label": "wait_state",
+            "LastUpdate": {
+                "date": "02/06/2021 at 11:23:17",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "wait_time": {
+                    "Description": "[integer] Seconds to wait before transition",
+                    "Value": "5"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "wait_state_entry",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

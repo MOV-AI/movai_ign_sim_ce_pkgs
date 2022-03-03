@@ -1,0 +1,60 @@
+{
+    "Node": {
+        "ignition_pose_to_tf": {
+            "Info": "Ignition Model to TF publisher. This node gets Pose information about all robot links and sends it to TF.",
+            "Label": "ignition_pose_to_tf",
+            "LastUpdate": {
+                "date": "25/11/2021 at 10:45:06",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "base_link_frame": {
+                    "Description": "Base Link frame name",
+                    "Type": "any",
+                    "Value": "base_link"
+                },
+                "generate_tfs": {
+                    "Description": "Generate the tfs based on the frames position information from Ignition",
+                    "Type": "any",
+                    "Value": "True"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "pose_in": {
+                    "In": {
+                        "in": {
+                            "Callback": "ignition_pose_to_tf",
+                            "Message": "geometry_msgs/TransformStamped"
+                        }
+                    },
+                    "Message": "TransformStamped",
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "tf": {
+                    "Message": "TF",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/TF",
+                            "Parameter": {
+                                "Child": "from",
+                                "Parent": "to"
+                            }
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/TFPublisher"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

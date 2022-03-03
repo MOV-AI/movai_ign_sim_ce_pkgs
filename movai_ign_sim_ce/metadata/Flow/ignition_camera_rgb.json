@@ -1,0 +1,161 @@
+{
+    "Flow": {
+        "ignition_camera_rgb": {
+            "Description": "This Subflow is to use with the Ignition Sensor \"camera\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dependency": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_camera": {
+                    "output": [
+                        "image_raw/out",
+                        "camera_info/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_camera_rgb",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:23:05",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "1df69f7d-5786-43cd-9b20-fc1c9024a738": {
+                    "From": "dependency/depends/out",
+                    "To": "output/depend/in"
+                },
+                "2ab4926e-b081-4853-a098-1463b39e6c89": {
+                    "From": "tf_camera_front/tf_static/out",
+                    "To": "ign_bridge_image/empty/in"
+                },
+                "e8faa487-dc05-46be-bd3d-2374284b987c": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge_camera_info/dependency/in"
+                },
+                "e923f4ab-f1bd-41d0-94e6-43c72c8aa5fd": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge_image/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "dependency": {
+                    "NodeLabel": "dependency",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017866666666666666
+                        },
+                        "y": {
+                            "Value": 0.015266666666666668
+                        }
+                    }
+                },
+                "ign_bridge_camera_info": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/camera_info@sensor_msgs/CameraInfo[ignition.msgs.CameraInfo"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/camera_info:=/$(flow remap_topic)/camera_info"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_camera_info",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.029666666666666668
+                        },
+                        "y": {
+                            "Value": 0.02426666666666667
+                        }
+                    }
+                },
+                "ign_bridge_image": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/image@sensor_msgs/Image[ignition.msgs.Image"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/link/$(flow frame_name)/sensor/$(flow sensor_name)/image:=/$(flow remap_topic)/image_raw"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge_image",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0296
+                        },
+                        "y": {
+                            "Value": 0.016
+                        }
+                    }
+                },
+                "output": {
+                    "NodeLabel": "output",
+                    "Parameter": {
+                        "_namespace": {
+                            "Value": "$(flow remap_topic)"
+                        },
+                        "_ns": {
+                            "Value": "$(flow remap_topic)"
+                        }
+                    },
+                    "Template": "remap_sim_camera",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0334
+                        },
+                        "y": {
+                            "Value": 0.0094
+                        }
+                    }
+                },
+                "tf_camera_front": {
+                    "CmdLine": {
+                        "cmdline": {
+                            "Value": "$(flow lens_pose) $(flow frame_name) $(flow robot_name)/$(flow frame_name)/$(flow sensor_name)"
+                        }
+                    },
+                    "NodeLabel": "tf_camera_front",
+                    "Template": "static_transform_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0222
+                        },
+                        "y": {
+                            "Value": 0.009733333333333333
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "frame_name": {
+                    "Description": "link that is attached the sensor in SDF model file",
+                    "Value": "camera_link"
+                },
+                "lens_pose": {
+                    "Description": "TF of Lens position from frame_name",
+                    "Value": "0 0 0 0 0 0"
+                },
+                "remap_topic": {
+                    "Description": "topic to be used in Mov.Ai",
+                    "Value": "camera"
+                },
+                "robot_name": {
+                    "Description": "Robot model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                },
+                "sensor_name": {
+                    "Description": "Name of the sensor in SDF file.",
+                    "Value": "camera"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "Flow": {
+        "ignition_sim_base": {
+            "Description": "This Subflow is a required to uses the Ignition simulator with Mov.Ai. Will load the basic parameters and tell ROS to uses the Ignition Simulator Clock as a Time source.",
+            "ExposedPorts": {
+                "load_config": {
+                    "get_params": [
+                        "entry/in"
+                    ]
+                },
+                "wait_state": {
+                    "transition_out": [
+                        "exit/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_sim_base",
+            "LastUpdate": {
+                "date": "17/12/2021 at 12:48:17",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "81cd58ed-df50-4704-b0af-1750d1ef7473": {
+                    "From": "get_params/exit/out",
+                    "To": "init_clock/entry/in"
+                },
+                "c543a2c0-817d-4690-906d-e727aff458b4": {
+                    "From": "init_clock/depends/out",
+                    "To": "clock/dependency/in"
+                },
+                "de5f0787-b575-40c5-9833-19657b1cf52a": {
+                    "From": "get_params/exit/out",
+                    "To": "transition_out/entry/in"
+                }
+            },
+            "NodeInst": {
+                "clock": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/clock@rosgraph_msgs/Clock[ignition.msgs.Clock"
+                        }
+                    },
+                    "NodeLabel": "clock",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.028333333333333335
+                        },
+                        "y": {
+                            "Value": 0.005666666666666667
+                        }
+                    }
+                },
+                "get_params": {
+                    "NodeLabel": "get_params",
+                    "Parameter": {
+                        "configuration_name": {
+                            "Value": "ignition_simulator"
+                        }
+                    },
+                    "Template": "load_config",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0106
+                        },
+                        "y": {
+                            "Value": 0.0098
+                        }
+                    }
+                },
+                "init_clock": {
+                    "NodeLabel": "init_clock",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.018666666666666668
+                        },
+                        "y": {
+                            "Value": 0.005266666666666667
+                        }
+                    }
+                },
+                "transition_out": {
+                    "NodeLabel": "transition_out",
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "1"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.02886666666666667
+                        },
+                        "y": {
+                            "Value": 0.016666666666666666
+                        }
+                    }
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

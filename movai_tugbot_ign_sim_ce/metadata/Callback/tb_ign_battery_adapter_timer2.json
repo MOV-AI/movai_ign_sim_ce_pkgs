@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "tb_ign_battery_adapter_timer2": {
+            "Info": "",
+            "Label": "tb_ign_battery_adapter_timer2",
+            "LastUpdate": {
+                "date": "17/11/2021 at 20:50:56",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Timer",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

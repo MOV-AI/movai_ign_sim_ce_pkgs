@@ -1,0 +1,87 @@
+{
+    "Node": {
+        "emergency_sim_detector": {
+            "Info": "Simulated Tugbot emergency controller state",
+            "Label": "emergency_sim_detector",
+            "LastUpdate": {
+                "date": "17/12/2021 at 16:42:06",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "cmd_vel": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/emergency_sim_detector_cmd_vel",
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Message": "Twist",
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "cmd_vel_control": {
+                    "Message": "Twist",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "init": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/emergency_sim_detector_init",
+                            "Message": "movai_msgs/Init"
+                        }
+                    },
+                    "Message": "Init",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Init"
+                },
+                "release_cmd": {
+                    "Message": "Bool",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "sw_detection": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/emergency_sim_detector_detection",
+                            "Message": "std_msgs/Bool"
+                        }
+                    },
+                    "Message": "Bool",
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "trans": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

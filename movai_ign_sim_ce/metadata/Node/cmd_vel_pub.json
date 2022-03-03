@@ -1,0 +1,87 @@
+{
+    "Node": {
+        "cmd_vel_pub": {
+            "Info": "std_msgs/Float64 Publisher with transitioning.",
+            "Label": "cmd_vel_pub",
+            "LastUpdate": {
+                "date": "28/09/2021 at 15:59:18",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "angular": {
+                    "Description": "",
+                    "Value": "0.0"
+                },
+                "linear_x": {
+                    "Description": "Float64 value to publish",
+                    "Value": "0.0"
+                },
+                "linear_y": {
+                    "Description": "",
+                    "Value": "0.0"
+                },
+                "linear_z": {
+                    "Description": "",
+                    "Value": "0.0"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "cmd_msgs_publisher": {
+                    "Message": "Twist",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/place_holder",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "loop": {
+                    "In": {
+                        "in": {
+                            "Callback": "cmd_vel_pub",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 10,
+                                "Oneshot": false
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

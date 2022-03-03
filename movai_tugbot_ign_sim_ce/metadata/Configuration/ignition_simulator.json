@@ -1,0 +1,13 @@
+{
+    "Configuration": {
+        "ignition_simulator": {
+            "Label": "ignition_simulator",
+            "LastUpdate": {
+                "date": "26/10/2021 at 10:35:56",
+                "user": "movai"
+            },
+            "Type": "yaml",
+            "User": ""
+        }
+    }
+}

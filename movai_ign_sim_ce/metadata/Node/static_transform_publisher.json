@@ -1,0 +1,44 @@
+{
+    "Node": {
+        "static_transform_publisher": {
+            "CmdLine": {
+                "cmdline": {
+                    "Value": "0.14 0.02 0.25 1.57 0 0 base_link imu_link"
+                }
+            },
+            "Info": "TF2_ros tools Publish a static coordinate transform to tf2",
+            "Label": "static_transform_publisher",
+            "LastUpdate": {
+                "date": "09/11/2021 at 10:01:49",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "_remappable": {
+                    "Type": "boolean",
+                    "Value": "False"
+                }
+            },
+            "Path": "/tf2_ros/static_transform_publisher",
+            "Persistent": false,
+            "PortsInst": {
+                "tf_static": {
+                    "Message": "TFMessage",
+                    "Out": {
+                        "out": {
+                            "Message": "tf2_msgs/TFMessage"
+                        }
+                    },
+                    "Package": "tf2_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

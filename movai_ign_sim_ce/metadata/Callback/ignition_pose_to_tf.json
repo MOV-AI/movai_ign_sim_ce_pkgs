@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "ignition_pose_to_tf": {
+            "Info": "",
+            "Label": "ignition_pose_to_tf",
+            "LastUpdate": {
+                "date": "25/11/2021 at 10:52:29",
+                "user": "movai"
+            },
+            "Message": "geometry_msgs/TransformStamped",
+            "Py3Lib": {
+                "Pose": {
+                    "Class": "Pose",
+                    "Module": "geometry_msgs.msg"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

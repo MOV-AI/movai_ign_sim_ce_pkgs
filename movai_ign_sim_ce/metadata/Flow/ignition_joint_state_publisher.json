@@ -1,0 +1,97 @@
+{
+    "Flow": {
+        "ignition_joint_state_publisher": {
+            "Description": "This Subflow is to use with the Ignition Plugin \"JointStatePublisher\" in the robot SDF file.",
+            "ExposedPorts": {
+                "dependency": {
+                    "dependency": [
+                        "entry/in"
+                    ]
+                },
+                "remap_sim_joint_state": {
+                    "output": [
+                        "joint_state/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "ignition_joint_state_publisher",
+            "LastUpdate": {
+                "date": "17/12/2021 at 14:16:46",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "2edc93da-da9a-4c03-84c3-9bd79ada5fdf": {
+                    "From": "dependency/depends/out",
+                    "To": "ign_bridge/dependency/in"
+                },
+                "f8a5a876-1fd4-4542-8296-11a966a9091f": {
+                    "From": "dependency/depends/out",
+                    "To": "output/depend/in"
+                }
+            },
+            "NodeInst": {
+                "dependency": {
+                    "NodeLabel": "dependency",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017866666666666666
+                        },
+                        "y": {
+                            "Value": 0.015266666666666668
+                        }
+                    }
+                },
+                "ign_bridge": {
+                    "CmdLine": {
+                        "arg": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/joint_state@sensor_msgs/JointState[ignition.msgs.Model"
+                        },
+                        "remap": {
+                            "Value": "/world/$(config ignition_simulator.world_scene_name)/model/$(flow robot_name)/joint_state:=/$(flow robot_name)/joint_state"
+                        }
+                    },
+                    "NodeLabel": "ign_bridge",
+                    "Template": "ignition_parameter_bridge",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.029811458333333336
+                        },
+                        "y": {
+                            "Value": 0.017733333333333334
+                        }
+                    }
+                },
+                "output": {
+                    "NodeLabel": "output",
+                    "Parameter": {
+                        "_namespace": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Template": "remap_sim_joint_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.030140655625171722
+                        },
+                        "y": {
+                            "Value": 0.010808947038398681
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "robot_name": {
+                    "Description": "Robot model name in Ignition Simulator",
+                    "Value": "$(config ignition_simulator.sim_robot_name)"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

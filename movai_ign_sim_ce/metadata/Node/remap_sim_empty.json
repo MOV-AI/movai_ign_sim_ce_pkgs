@@ -1,0 +1,49 @@
+{
+    "Node": {
+        "remap_sim_empty": {
+            "Info": "remap empty std_msgs",
+            "Label": "remap_sim_empty",
+            "LastUpdate": {
+                "date": "29/10/2021 at 16:34:41",
+                "user": "movai"
+            },
+            "Launch": false,
+            "PackageDepends": "",
+            "Parameter": {
+                "_namespace": {
+                    "Description": "namespace",
+                    "Value": ""
+                }
+            },
+            "Path": "",
+            "Persistent": true,
+            "PortsInst": {
+                "depend": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "empty_msg": {
+                    "Message": "Empty",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Empty"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

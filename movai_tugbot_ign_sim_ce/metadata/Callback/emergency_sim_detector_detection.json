@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "emergency_sim_detector_detection": {
+            "Info": "",
+            "Label": "emergency_sim_detector_detection",
+            "LastUpdate": {
+                "date": "17/12/2021 at 16:42:02",
+                "user": "movai"
+            },
+            "Message": "std_msgs/Bool",
+            "Py3Lib": {
+                "Twist": {
+                    "Class": "Twist",
+                    "Module": "geometry_msgs.msg"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

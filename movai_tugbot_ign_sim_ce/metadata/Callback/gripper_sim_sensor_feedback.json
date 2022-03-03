@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "gripper_sim_sensor_feedback": {
+            "Info": "",
+            "Label": "gripper_sim_sensor_feedback",
+            "LastUpdate": {
+                "date": "17/12/2021 at 16:49:09",
+                "user": "movai"
+            },
+            "Message": "sensor_msgs/LaserScan",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

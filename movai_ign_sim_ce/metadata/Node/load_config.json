@@ -1,0 +1,63 @@
+{
+    "Node": {
+        "load_config": {
+            "Info": "Node to load  a specific configuration into ros parameter server.",
+            "Label": "load_config",
+            "LastUpdate": {
+                "date": "01/04/2021 at 16:51:06",
+                "user": "movai"
+            },
+            "Launch": "",
+            "PackageDepends": "",
+            "Parameter": {
+                "configuration_name": {
+                    "Description": "Configuration name",
+                    "Value": "None"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "load_config_entry",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "parameters": {
+                    "Message": "Parameter",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Parameter",
+                            "Parameter": {
+                                "Namespace": ""
+                            }
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/ParameterServer"
+                }
+            },
+            "Remappable": "",
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
