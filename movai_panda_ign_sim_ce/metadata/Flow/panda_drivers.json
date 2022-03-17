@@ -1,0 +1,425 @@
+{
+    "Flow": {
+        "panda_drivers": {
+            "Container": {
+                "finger1": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "finger1",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_leftfinger"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_finger_joint1"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "left_finger"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 454
+                        },
+                        "y": {
+                            "Value": 368
+                        }
+                    }
+                },
+                "finger2": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "finger2",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_rightfinger"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_finger_joint2"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "right_finger"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 455
+                        },
+                        "y": {
+                            "Value": 464
+                        }
+                    }
+                },
+                "ignition_sim_base": {
+                    "ContainerFlow": "ignition_sim_base",
+                    "ContainerLabel": "ignition_sim_base",
+                    "Visualization": {
+                        "x": {
+                            "Value": 195
+                        },
+                        "y": {
+                            "Value": 207
+                        }
+                    }
+                },
+                "joint1": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint1",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link1"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint1"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint1"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 332
+                        },
+                        "y": {
+                            "Value": 88
+                        }
+                    }
+                },
+                "joint2": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint2",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link2"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint2"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint2"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 333
+                        },
+                        "y": {
+                            "Value": 179
+                        }
+                    }
+                },
+                "joint3": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint3",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link3"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint3"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint3"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 333
+                        },
+                        "y": {
+                            "Value": 275
+                        }
+                    }
+                },
+                "joint4": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint4",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link4"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint4"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint4"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 332
+                        },
+                        "y": {
+                            "Value": 366
+                        }
+                    }
+                },
+                "joint5": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint5",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link5"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint5"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint5"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 332
+                        },
+                        "y": {
+                            "Value": 458
+                        }
+                    }
+                },
+                "joint6": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint6",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link6"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint6"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint6"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 450
+                        },
+                        "y": {
+                            "Value": 88
+                        }
+                    }
+                },
+                "joint7": {
+                    "ContainerFlow": "ignition_joint_position_controller",
+                    "ContainerLabel": "joint7",
+                    "Parameter": {
+                        "child_name": {
+                            "Type": "any",
+                            "Value": "panda_link7"
+                        },
+                        "joint_name": {
+                            "Type": "any",
+                            "Value": "panda_joint7"
+                        },
+                        "remap_topic": {
+                            "Type": "any",
+                            "Value": "joint7"
+                        },
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "$(flow robot_name)"
+                        }
+                    },
+                    "Visualization": {
+                        "x": {
+                            "Value": 453
+                        },
+                        "y": {
+                            "Value": 177
+                        }
+                    }
+                }
+            },
+            "Description": "",
+            "ExposedPorts": {
+                "__ignition_joint_position_controller": {
+                    "finger1": [
+                        "input/pose/in"
+                    ],
+                    "finger2": [
+                        "input/pose/in"
+                    ],
+                    "hand": [
+                        "input/pose/in"
+                    ],
+                    "joint1": [
+                        "input/pose/in"
+                    ],
+                    "joint2": [
+                        "input/pose/in"
+                    ],
+                    "joint2_copy": [
+                        "dep/entry/in"
+                    ],
+                    "joint3": [
+                        "input/pose/in"
+                    ],
+                    "joint4": [
+                        "input/pose/in"
+                    ],
+                    "joint5": [
+                        "input/pose/in"
+                    ],
+                    "joint6": [
+                        "input/pose/in"
+                    ],
+                    "joint7": [
+                        "input/pose/in"
+                    ]
+                },
+                "__ignition_sim_base": {
+                    "ignition_sim_base": [
+                        "get_params/entry/in"
+                    ]
+                },
+                "wait_state": {
+                    "wait_state": [
+                        "exit/out"
+                    ]
+                }
+            },
+            "Info": "",
+            "Label": "panda_drivers",
+            "LastUpdate": {
+                "date": "17/03/2022 at 14:51:08",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "100edd37-35ef-4016-a73a-e52568b38d10": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "wait_state/entry/in"
+                },
+                "175877fb-acd6-43d9-a471-5b08e54f0425": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "finger1__dep/entry/in"
+                },
+                "58685573-db06-499d-afce-dd0936265fbe": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "finger2__dep/entry/in"
+                },
+                "79ec53a7-1be8-41fd-9265-19fa97720b11": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint5__dep/entry/in"
+                },
+                "7ca289d1-d7e1-49fd-9d94-953b5ee21ad5": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint1__dep/entry/in"
+                },
+                "98d85fd8-6e3c-41b3-b628-74ad3d929319": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint3__dep/entry/in"
+                },
+                "c1b27890-30e9-420c-8e63-fea4c3491e3b": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint2__dep/entry/in"
+                },
+                "c936315a-8712-4bc0-806e-d565338633da": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint6__dep/entry/in"
+                },
+                "cf7ec9c8-687b-4541-87a2-06b252495378": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint4__dep/entry/in"
+                },
+                "d2a88338-13a2-423c-a08a-ae6af07d02d3": {
+                    "Dependency": 0,
+                    "From": "ignition_sim_base__transition_out/exit/out",
+                    "To": "joint7__dep/entry/in"
+                }
+            },
+            "NodeInst": {
+                "wait_state": {
+                    "Launch": true,
+                    "NodeLabel": "wait_state",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 454.72727272727263
+                        },
+                        "y": {
+                            "Value": 273.6363636363636
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "robot_name": {
+                    "Description": "Robot name inside the Ignition Simulator that you want to control",
+                    "Type": "any",
+                    "Value": "Panda"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
