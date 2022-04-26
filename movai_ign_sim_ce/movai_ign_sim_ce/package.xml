@@ -10,6 +10,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>tf2</exec_depend>
+  <exec_depend>movai_ros_ign</exec_depend>
 
   <export>
     <build_version>0</build_version>
