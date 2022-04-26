@@ -19,7 +19,7 @@
             },
             "Launch": true,
             "PackageDepends": "",
-            "Path": "/opt/mov.ai/workspaces/USER_ROS1/lib/ros_ign_bridge/parameter_bridge",
+            "Path": "/ros_ign_bridge/parameter_bridge",
             "Persistent": true,
             "PortsInst": {
                 "dependency": {
