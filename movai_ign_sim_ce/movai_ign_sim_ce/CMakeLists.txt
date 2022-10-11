@@ -6,7 +6,7 @@ project(movai_ign_sim_ce)
 #############
 # Installation
 
-set (PACKAGE_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}_metadata)
+set (PACKAGE_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME})
 
 install(DIRECTORY ../metadata
         DESTINATION ${PACKAGE_DESTINATION}
