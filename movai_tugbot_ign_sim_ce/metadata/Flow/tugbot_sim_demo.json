@@ -5,111 +5,140 @@
                 "tugbot_drivers": {
                     "ContainerFlow": "tugbot_sim_drivers",
                     "ContainerLabel": "tugbot_drivers",
-                    "Visualization": [
-                        0.010969246419270834,
-                        0.0030249593098958336
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.010969246419270834
+                        },
+                        "y": {
+                            "Value": 0.0030249593098958336
+                        }
+                    }
                 }
             },
-            "Description": "",
+            "Description": "This flow is used to test whether the tugbot robot is correctly connected to mov.ai. When the flow is launched alongside any gazebo world with the tugbot robot, the robot will do several actions in sequence. It will move in a semi-circle, then rotate, open the gripper, then do another semi circle, then close the gripper, and repeat the actions.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "tugbot_sim_demo",
             "LastUpdate": {
-                "date": "26/10/2021 at 11:08:45",
+                "date": "24/10/2022 at 10:51:01",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "06a62e55-94e0-4990-be04-a94e7dd0e0af": {
+                    "Dependency": 0,
                     "From": "wait/exit/out",
                     "To": "attach/entry/in"
                 },
                 "0cf54999-8e48-4321-b233-938a117f358b": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "tugbot_drivers__ignition_base__get_params/entry/in"
                 },
                 "276529cf-9907-45f1-966b-d8339d01bb2a": {
+                    "Dependency": 0,
                     "From": "cmd_vel_move/exit/out",
                     "To": "wait/entry/in"
                 },
                 "40028ecf-28ec-4c3e-be6d-fbb5c09b0bd3": {
+                    "Dependency": 0,
                     "From": "cmd_vel_go/exit/out",
                     "To": "cmd_vel_move/entry/in"
                 },
                 "4ff4991a-966f-4cd5-9c3b-b04b7d9f3282": {
+                    "Dependency": 0,
                     "From": "attach/std_msgs_publisher/out",
                     "To": "tugbot_drivers__gripper_controller/attach/in"
                 },
                 "5664e3d1-e65d-445c-a3de-4e4b3bed41c9": {
+                    "Dependency": 0,
                     "From": "wait3/exit/out",
                     "To": "dettach/entry/in"
                 },
                 "5acac7ee-64cd-4070-b155-86bcc5b2e3e6": {
+                    "Dependency": 0,
                     "From": "tugbot_drivers__diffdrive__outputs/odom/out",
                     "To": "odom/odometry/in"
                 },
                 "61aee7ad-31e8-4c97-ba02-eba28f730c8b": {
+                    "Dependency": 0,
                     "From": "wait4/exit/out",
                     "To": "cmd_vel_go/entry/in"
                 },
                 "7c78fd2f-b013-4520-806f-ae9551df331c": {
+                    "Dependency": 0,
                     "From": "wait3/exit/out",
                     "To": "stop_move/entry/in"
                 },
                 "7e617757-7f3d-488d-bfd7-b60ce5f1206e": {
+                    "Dependency": 0,
                     "From": "tugbot_drivers__wait_ready/exit/out",
                     "To": "cmd_vel_move/entry/in"
                 },
                 "80d74e2f-12a4-4229-b5df-74f17be4ca3f": {
+                    "Dependency": 0,
                     "From": "wait/exit/out",
                     "To": "wait2/entry/in"
                 },
                 "8aced463-4b46-4803-aed8-844770dd5352": {
+                    "Dependency": 0,
                     "From": "cmd_vel_go/cmd_msgs_publisher/out",
                     "To": "tugbot_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "93f9512a-e77c-4027-91a5-b9cf05e7b82d": {
+                    "Dependency": 0,
                     "From": "wait2/exit/out",
                     "To": "cmd_vel_rotate/entry/in"
                 },
                 "99bc488b-4caf-4293-b9d7-98b3e94457f8": {
+                    "Dependency": 0,
                     "From": "wait/exit/out",
                     "To": "stop_move/entry/in"
                 },
                 "a60d61f0-3aab-4e92-b762-6fe905efb371": {
+                    "Dependency": 0,
                     "From": "dettach/std_msgs_publisher/out",
                     "To": "tugbot_drivers__gripper_controller/attach/in"
                 },
                 "b3bf2fec-db8a-488e-aa57-6c31d521f9dc": {
+                    "Dependency": 0,
                     "From": "stop_move/cmd_msgs_publisher/out",
                     "To": "tugbot_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "bc7827a4-b0b0-4d12-a0d4-51863ec2b481": {
+                    "Dependency": 0,
                     "From": "cmd_vel_move/cmd_msgs_publisher/out",
                     "To": "tugbot_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "d203219b-6886-4ae3-aa19-2b0d28c400e4": {
+                    "Dependency": 0,
                     "From": "wait3/exit/out",
                     "To": "wait4/entry/in"
                 },
                 "d511dd39-aeaf-41b8-a665-a893ebbdaa40": {
+                    "Dependency": 0,
                     "From": "wait2/exit/out",
                     "To": "wait3/entry/in"
                 },
                 "ff671a54-46c2-4fc3-a92e-cf97293a9be9": {
+                    "Dependency": 0,
                     "From": "cmd_vel_rotate/cmd_msgs_publisher/out",
                     "To": "tugbot_drivers__emergency_sim_detector/cmd_vel/in"
                 }
             },
             "NodeInst": {
                 "attach": {
+                    "Launch": true,
                     "NodeLabel": "attach",
+                    "NodeLayers": [],
                     "Parameter": {
                         "value": {
+                            "Type": "any",
                             "Value": "True"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "bool_publisher",
                     "Visualization": {
                         "x": {
@@ -121,18 +150,25 @@
                     }
                 },
                 "cmd_vel_go": {
+                    "Launch": true,
                     "NodeLabel": "cmd_vel_go",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angular": {
+                            "Type": "any",
                             "Value": "0.0"
                         },
                         "linear": {
+                            "Type": "any",
                             "Value": "0.5"
                         },
                         "linear_x": {
+                            "Type": "any",
                             "Value": "0.5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "cmd_vel_pub",
                     "Visualization": {
                         "x": {
@@ -144,18 +180,25 @@
                     }
                 },
                 "cmd_vel_move": {
+                    "Launch": true,
                     "NodeLabel": "cmd_vel_move",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angular": {
+                            "Type": "any",
                             "Value": "0.5"
                         },
                         "linear": {
+                            "Type": "any",
                             "Value": "0.5"
                         },
                         "linear_x": {
+                            "Type": "any",
                             "Value": "1.0"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "cmd_vel_pub",
                     "Visualization": {
                         "x": {
@@ -167,18 +210,25 @@
                     }
                 },
                 "cmd_vel_rotate": {
+                    "Launch": true,
                     "NodeLabel": "cmd_vel_rotate",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angular": {
+                            "Type": "any",
                             "Value": "0.5"
                         },
                         "linear": {
+                            "Type": "any",
                             "Value": "0.5"
                         },
                         "linear_x": {
+                            "Type": "any",
                             "Value": "0.0"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "cmd_vel_pub",
                     "Visualization": {
                         "x": {
@@ -190,12 +240,17 @@
                     }
                 },
                 "dettach": {
+                    "Launch": true,
                     "NodeLabel": "dettach",
+                    "NodeLayers": [],
                     "Parameter": {
                         "value": {
+                            "Type": "any",
                             "Value": "False"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "bool_publisher",
                     "Visualization": {
                         "x": {
@@ -207,7 +262,11 @@
                     }
                 },
                 "odom": {
+                    "Launch": true,
                     "NodeLabel": "odom",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "tf_odometry",
                     "Visualization": {
                         "x": {
@@ -219,15 +278,21 @@
                     }
                 },
                 "stop_move": {
+                    "Launch": true,
                     "NodeLabel": "stop_move",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angular": {
+                            "Type": "any",
                             "Value": "0.0"
                         },
                         "linear": {
+                            "Type": "any",
                             "Value": "0.0"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "cmd_vel_pub",
                     "Visualization": {
                         "x": {
@@ -239,12 +304,17 @@
                     }
                 },
                 "wait": {
+                    "Launch": true,
                     "NodeLabel": "wait",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "3"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
@@ -256,12 +326,17 @@
                     }
                 },
                 "wait2": {
+                    "Launch": true,
                     "NodeLabel": "wait2",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "2"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
@@ -273,12 +348,17 @@
                     }
                 },
                 "wait3": {
+                    "Launch": true,
                     "NodeLabel": "wait3",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
@@ -290,12 +370,17 @@
                     }
                 },
                 "wait4": {
+                    "Launch": true,
                     "NodeLabel": "wait4",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
