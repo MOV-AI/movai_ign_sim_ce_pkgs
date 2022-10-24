@@ -7,93 +7,118 @@
                     "ContainerLabel": "husky_drivers",
                     "Parameter": {
                         "robot_name": {
+                            "Type": "any",
                             "Value": "husky"
                         }
                     },
-                    "Visualization": [
-                        0.01626666666666667,
-                        0.0041333333333333335
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.01626666666666667
+                        },
+                        "y": {
+                            "Value": 0.0041333333333333335
+                        }
+                    }
                 }
             },
-            "Description": "",
+            "Description": "This flow is used to testing whether the husky robot is correctly connected to mov.ai. When the flow is launched alongside with the husky_depot gazebo world, the robot will turn for some time then stop, then turn the camera for some time, then stop and repeat.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "husky_demo",
             "LastUpdate": {
-                "date": "02/11/2021 at 10:38:15",
+                "date": "24/10/2022 at 10:42:08",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "076913ac-17b1-475a-89a4-077bf5bf467b": {
+                    "Dependency": 0,
                     "From": "cmd_vel_move/exit/out",
                     "To": "wait/entry/in"
                 },
                 "09f337cc-b5be-4ed0-8cee-b173577ce234": {
+                    "Dependency": 0,
                     "From": "wait2/exit/out",
                     "To": "stop_camera/entry/in"
                 },
                 "0cf9601b-3f0d-449a-bb07-831e1c605798": {
+                    "Dependency": 0,
                     "From": "wait/exit/out",
                     "To": "stop_move/entry/in"
                 },
                 "1e918b4f-edfd-445a-af26-b2f912d5368f": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "husky_drivers__init_sim__get_params/entry/in"
                 },
                 "297c5740-20a1-4051-b5af-e19d9de37224": {
+                    "Dependency": 0,
                     "From": "husky_drivers__diffdrive__outputs/odom/out",
                     "To": "odom/odometry/in"
                 },
                 "5c8ec6c5-2473-4f21-8cfb-387e53ce5100": {
+                    "Dependency": 0,
                     "From": "husky_drivers__wait_ready/exit/out",
                     "To": "cmd_vel_move/entry/in"
                 },
                 "7f4eab0f-83f8-4b87-8f90-a01560022e18": {
+                    "Dependency": 0,
                     "From": "cmd_vel_move/cmd_msgs_publisher/out",
                     "To": "husky_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "987d0351-1ad8-416a-8e14-f7acfe6c0a02": {
+                    "Dependency": 0,
                     "From": "stop_camera/exit/out",
                     "To": "wait3/entry/in"
                 },
                 "b12468f7-4269-4021-9e92-aa3a7578e9d8": {
+                    "Dependency": 0,
                     "From": "stop_move/cmd_msgs_publisher/out",
                     "To": "husky_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "b1520bc0-a8a5-45de-99b1-3656f845dbef": {
+                    "Dependency": 0,
                     "From": "rotate_camera/exit/out",
                     "To": "wait2/entry/in"
                 },
                 "d5ed68c3-3c44-4bb4-a502-0e73d53879a3": {
+                    "Dependency": 0,
                     "From": "stop_move/exit/out",
                     "To": "rotate_camera/entry/in"
                 },
                 "f60a5bb3-498f-410a-8818-c9ef6f19783b": {
+                    "Dependency": 0,
                     "From": "rotate_camera/std_msgs_publisher/out",
                     "To": "husky_drivers__gimbal_pan__input_joint/cmd/in"
                 },
                 "f654b05f-e6d1-4e91-a8b8-d967fca2b918": {
+                    "Dependency": 0,
                     "From": "wait3/exit/out",
                     "To": "cmd_vel_move/entry/in"
                 },
                 "f8f8993a-e664-4d2e-8ede-2be5035ab955": {
+                    "Dependency": 0,
                     "From": "stop_camera/std_msgs_publisher/out",
                     "To": "husky_drivers__gimbal_pan__input_joint/cmd/in"
                 }
             },
             "NodeInst": {
                 "cmd_vel_move": {
+                    "Launch": true,
                     "NodeLabel": "cmd_vel_move",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angular": {
+                            "Type": "any",
                             "Value": "0.5"
                         },
                         "linear": {
+                            "Type": "any",
                             "Value": "0.5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "cmd_vel_pub",
                     "Visualization": {
                         "x": {
@@ -105,7 +130,11 @@
                     }
                 },
                 "odom": {
+                    "Launch": true,
                     "NodeLabel": "odom",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "tf_odometry",
                     "Visualization": {
                         "x": {
@@ -117,12 +146,17 @@
                     }
                 },
                 "rotate_camera": {
+                    "Launch": true,
                     "NodeLabel": "rotate_camera",
+                    "NodeLayers": [],
                     "Parameter": {
                         "value": {
+                            "Type": "any",
                             "Value": "0.5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "float64_publisher",
                     "Visualization": {
                         "x": {
@@ -134,12 +168,17 @@
                     }
                 },
                 "stop_camera": {
+                    "Launch": true,
                     "NodeLabel": "stop_camera",
+                    "NodeLayers": [],
                     "Parameter": {
                         "value": {
+                            "Type": "any",
                             "Value": "0.0"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "float64_publisher",
                     "Visualization": {
                         "x": {
@@ -151,15 +190,21 @@
                     }
                 },
                 "stop_move": {
+                    "Launch": true,
                     "NodeLabel": "stop_move",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angular": {
+                            "Type": "any",
                             "Value": "0.0"
                         },
                         "linear": {
+                            "Type": "any",
                             "Value": "0.0"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "cmd_vel_pub",
                     "Visualization": {
                         "x": {
@@ -171,12 +216,17 @@
                     }
                 },
                 "wait": {
+                    "Launch": true,
                     "NodeLabel": "wait",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
@@ -188,12 +238,17 @@
                     }
                 },
                 "wait2": {
+                    "Launch": true,
                     "NodeLabel": "wait2",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
@@ -205,12 +260,17 @@
                     }
                 },
                 "wait3": {
+                    "Launch": true,
                     "NodeLabel": "wait3",
+                    "NodeLayers": [],
                     "Parameter": {
                         "wait_time": {
+                            "Type": "any",
                             "Value": "5"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "wait_state",
                     "Visualization": {
                         "x": {
