@@ -21,12 +21,12 @@
                     }
                 }
             },
-            "Description": "This flow is used to testing whether the husky robot is correctly connected to mov.ai. When the flow is launched alongside with the husky_depot gazebo world, the robot will turn for some time then stop, then turn the camera for some time, then stop and repeat.",
+            "Description": "This flow is used to test whether the husky robot is correctly connected to mov.ai. When the flow is launched alongside any gazebo world with the husky robot, the robot will turn for some time then stop, then turn the camera for some time, then stop and repeat.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "husky_demo",
             "LastUpdate": {
-                "date": "24/10/2022 at 10:42:08",
+                "date": "24/10/2022 at 10:45:03",
                 "user": "movai"
             },
             "Layers": {},
